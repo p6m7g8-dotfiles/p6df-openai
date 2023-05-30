@@ -42,12 +42,29 @@ p6df::modules::kaggle::clones() {
 }
 
 p6df::modules::kaggle::prompt::line() {
-  
+  local kaggle_username="$KAGGLE_USERNAME"
+  local kaggle_key="$KAGGLE_KEY"
   local str="kaggle: "
+
+  if [ -n "$kaggle_username" ]; then
+    str+="($kaggle_username)"
+  fi
+
+  # Add Kaggle CLI integration
+  if [ -n "$kaggle_key" ]; then
+    local kaggle_cli_output
+    kaggle_cli_output=$(kaggle config view 2>/dev/null)
+    if [ $? -eq 0 ]; then
+      local kaggle_cli_username
+      kaggle_cli_username=$(echo "$kaggle_cli_output" | awk '/username/ { print $3 }' | tr -d '[:space:]')
+      if [ -n "$kaggle_cli_username" ]; then
+        str+=" (cli: $kaggle_cli_username)"
+      fi
+    fi
+  fi
 
   p6_return_str "$str"
 }
-
 
 # export KAGGLE_USERNAME=datadinosaur
 # export KAGGLE_KEY=xxxxxxxxxxxxxx
