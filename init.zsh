@@ -53,10 +53,9 @@ p6df::modules::openai::clones() {
   p6_return_void
 }
 
-# https://beta.openai.com/docs/
-# https://github.com/openai/openai
-# https://github.com/openai/openai-cookbook
-# https://github.com/openai/triton
-# https://github.com/openai/CLIP
-# https://github.com/openai/DALL-E
+p6df::modules::openai::prompt::line() {
+  
+  local str="open-ai:"
 
+  p6_return_str "$str"
+}
