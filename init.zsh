@@ -41,6 +41,22 @@ p6df::modules::kaggle::clones() {
   p6_return_void
 }
 
+######################################################################
+#<
+#
+# Function: str str = p6df::modules::kaggle::prompt::line(kaggle_username, kaggle_key, str)
+#
+#  Args:
+#	kaggle_username -
+#	kaggle_key -
+#	str -
+#
+#  Returns:
+#	str - str
+#
+#  Environment:	 CLI KAGGLE_KEY KAGGLE_USERNAME
+#>
+######################################################################
 p6df::modules::kaggle::prompt::line() {
   local kaggle_username="$KAGGLE_USERNAME"
   local kaggle_key="$KAGGLE_KEY"

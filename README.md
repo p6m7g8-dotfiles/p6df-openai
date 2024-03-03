@@ -44,10 +44,10 @@
 
 #### p6df-openai/init.zsh:
 
-- p6df::modules::openai::clones()
-- p6df::modules::openai::deps()
-- p6df::modules::openai::init()
-- p6df::modules::openai::langs()
+- p6df::modules::kaggle::clones()
+- p6df::modules::kaggle::deps()
+- p6df::modules::kaggle::langs()
+- str str = p6df::modules::kaggle::prompt::line(kaggle_username, kaggle_key, str)
 
 
 
