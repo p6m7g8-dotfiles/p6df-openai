@@ -85,17 +85,24 @@ p6df::modules::openai::aliases::init() {
 #  Returns:
 #	str - str
 #
-#  Environment:	 OPENAI_BASE_URL P6_CODEX_SANDBOX
+#  Environment:	 OPENAI_BASE_URL OPENAI_ORG_ID OPENAI_PROJECT_ID P6_CODEX_SANDBOX P6_DFZ_PROFILE_OPENAI
 #>
 ######################################################################
-p6df::modules::openai::prompt::line() {
+p6df::modules::openai::prompt::mod() {
 
-  local str="openai:\t\t  $OPENAI_BASE_URL/$OPENAI_ORG_ID/$OPENAI_PROJECT_ID"
-  str=$(p6_string_append "$str" "codex:\t\t  $P6_CODEX_SANDBOX/$P6_CODEX_MODEL/$P6_CODEX_APPROVAL" "$P6_NL")
+  local str
+  if ! p6_string_blank "$P6_DFZ_PROFILE_OPENAI"; then
+    str="openai:\t\t  $P6_DFZ_PROFILE_OPENAI:"
+    if ! p6_string_blank "$OPENAI_BASE_URL"; then
+      str=$(p6_string_append "$str" "$OPENAI_BASE_URL" " ")
+    fi
+    if ! p6_string_blank "$OPENAI_ORG_ID"; then
+      str=$(p6_string_append "$str" "$OPENAI_ORG_ID" "/")
+    fi
+    if ! p6_string_blank "$OPENAI_PROJECT_ID"; then
+      str=$(p6_string_append "$str" "$OPENAI_PROJECT_ID" "/")
+    fi
+  fi
 
   p6_return_str "$str"
 }
-
-# AGENTS.md
-# ~/.codex/config.toml
-# ~/.codex/AGENTS.md
