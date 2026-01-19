@@ -1,0 +1,6 @@
+share/codex/auth.json
+share/codex/history.jsonl
+share/codex/log/codex-tui.log
+share/codex/sessions/
+share/codex/skills/.system/
+share/codex/tmp/
