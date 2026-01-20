@@ -32,6 +32,7 @@
 - p6df::modules::openai::home::symlink()
 - p6df::modules::openai::vscodes()
 - str str = p6df::modules::openai::prompt::line()
+- Prompt shows when `P6_DFZ_PROFILE_OPENAI` is set; includes `OPENAI_BASE_URL`, `OPENAI_ORG_ID`, and `OPENAI_PROJECT_ID` if present.
 
 ## Hierarchy
 
