@@ -80,12 +80,12 @@ p6df::modules::openai::aliases::init() {
 ######################################################################
 #<
 #
-# Function: str str = p6df::modules::openai::prompt::line()
+# Function: str str = p6df::modules::openai::prompt::mod()
 #
 #  Returns:
 #	str - str
 #
-#  Environment:	 OPENAI_BASE_URL OPENAI_ORG_ID OPENAI_PROJECT_ID P6_CODEX_SANDBOX P6_DFZ_PROFILE_OPENAI
+#  Environment:	 OPENAI_BASE_URL OPENAI_ORG_ID OPENAI_PROJECT_ID P6_DFZ_PROFILE_OPENAI
 #>
 ######################################################################
 p6df::modules::openai::prompt::mod() {
