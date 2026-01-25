@@ -6,6 +6,7 @@ allowed_paths = []
 network_access = true
 
 telemetry = false
+model_reasoning_effort = "xhigh"
 
 [projects."/Users/pgollucci/.p6/p6m7g8-dotfiles/*"]
 trust_level = "trusted"
@@ -24,3 +25,9 @@ trust_level = "trusted"
 
 [projects."/Users/pgollucci/.p6"]
 trust_level = "trusted"
+
+[projects."/Users/pgollucci/.p6/p6m7g8-dotfiles/p6common"]
+trust_level = "trusted"
+
+[notice]
+hide_full_access_warning = true

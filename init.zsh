@@ -92,8 +92,8 @@ p6df::modules::openai::prompt::mod() {
 
   local str
   if ! p6_string_blank "$P6_DFZ_PROFILE_OPENAI"; then
-    str="openai:\t\t  $P6_DFZ_PROFILE_OPENAI:"
     if ! p6_string_blank "$OPENAI_BASE_URL"; then
+      str="openai:\t\t  $P6_DFZ_PROFILE_OPENAI:"
       str=$(p6_string_append "$str" "$OPENAI_BASE_URL" " ")
     fi
     if ! p6_string_blank "$OPENAI_ORG_ID"; then
@@ -105,4 +105,47 @@ p6df::modules::openai::prompt::mod() {
   fi
 
   p6_return_str "$str"
+}
+
+######################################################################
+#<
+#
+# Function: p6df::modules::openai::profile::on(profile, [item=], [vault=])
+#
+#  Args:
+#	profile -
+#	OPTIONAL item - []
+#	OPTIONAL vault - []
+#
+#  Environment:	 P6_DFZ_PROFILE_OPENAI
+#>
+######################################################################
+p6df::modules::openai::profile::on() {
+  local profile="$1"
+  local code_env="$2"
+
+  p6_env_export "P6_DFZ_PROFILE_OPENAI" "$profile"
+
+  eval "$code_env"
+
+  p6_return_void
+}
+
+######################################################################
+#<
+#
+# Function: p6df::modules::openai::profile::off()
+#
+#  Environment:	 OPENAI_API_KEY OPENAI_BASE_URL OPENAI_ORG_ID OPENAI_PROJECT_ID P6_DFZ_PROFILE_OPENAI
+#>
+######################################################################
+p6df::modules::openai::profile::off() {
+
+  p6_env_export_un P6_DFZ_PROFILE_OPENAI
+  p6_env_export_un OPENAI_API_KEY
+  p6_env_export_un OPENAI_BASE_URL
+  p6_env_export_un OPENAI_ORG_ID
+  p6_env_export_un OPENAI_PROJECT_ID
+
+  p6_return_void
 }
