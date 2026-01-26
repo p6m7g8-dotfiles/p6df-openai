@@ -21,7 +21,7 @@ p6df::modules::openai::deps() {
 ######################################################################
 p6df::modules::openai::vscodes() {
 
-  code --install-extension openai.chatgpt
+  p6df::modules::vscode::extension::install openai.chatgpt
 
   p6_return_void
 }
