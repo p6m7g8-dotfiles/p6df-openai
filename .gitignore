@@ -4,3 +4,6 @@ share/codex/log/codex-tui.log
 share/codex/sessions/
 share/codex/skills/.system/
 share/codex/tmp/
+share/codex/models_cache.json
+share/codex/version.json
+share/codex/rules/
