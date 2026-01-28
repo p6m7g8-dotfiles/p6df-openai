@@ -91,15 +91,15 @@ p6df::modules::openai::aliases::init() {
 p6df::modules::openai::prompt::mod() {
 
   local str
-  if ! p6_string_blank "$P6_DFZ_PROFILE_OPENAI"; then
-    if ! p6_string_blank "$OPENAI_BASE_URL"; then
+  if p6_string_blank_NOT "$P6_DFZ_PROFILE_OPENAI"; then
+    if p6_string_blank_NOT "$OPENAI_BASE_URL"; then
       str="openai:\t\t  $P6_DFZ_PROFILE_OPENAI:"
       str=$(p6_string_append "$str" "$OPENAI_BASE_URL" " ")
     fi
-    if ! p6_string_blank "$OPENAI_ORG_ID"; then
+    if p6_string_blank_NOT "$OPENAI_ORG_ID"; then
       str=$(p6_string_append "$str" "$OPENAI_ORG_ID" "/")
     fi
-    if ! p6_string_blank "$OPENAI_PROJECT_ID"; then
+    if p6_string_blank_NOT "$OPENAI_PROJECT_ID"; then
       str=$(p6_string_append "$str" "$OPENAI_PROJECT_ID" "/")
     fi
   fi
