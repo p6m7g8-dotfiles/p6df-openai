@@ -126,7 +126,7 @@ p6df::modules::openai::profile::on() {
 
   p6_env_export "P6_DFZ_PROFILE_OPENAI" "$profile"
 
-  eval "$code_env"
+#  eval "$code_env"
 
   p6_return_void
 }
