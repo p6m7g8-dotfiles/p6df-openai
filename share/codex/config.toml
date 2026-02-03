@@ -6,7 +6,7 @@ allowed_paths = []
 network_access = true
 
 telemetry = false
-model_reasoning_effort = "xhigh"
+model_reasoning_effort = "medium"
 
 [projects."/Users/pgollucci/.p6/p6m7g8-dotfiles/*"]
 trust_level = "trusted"
