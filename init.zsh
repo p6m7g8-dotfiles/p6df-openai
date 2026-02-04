@@ -110,12 +110,11 @@ p6df::modules::openai::prompt::mod() {
 ######################################################################
 #<
 #
-# Function: p6df::modules::openai::profile::on(profile, [item=], [vault=])
+# Function: p6df::modules::openai::profile::on(profile, code_env)
 #
 #  Args:
 #	profile -
-#	OPTIONAL item - []
-#	OPTIONAL vault - []
+#	code_env -
 #
 #  Environment:	 P6_DFZ_PROFILE_OPENAI
 #>
