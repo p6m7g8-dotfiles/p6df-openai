@@ -42,8 +42,8 @@ TODO: Add a short summary of this module.
 - `p6df::modules::openai::profile::off()`
 - `p6df::modules::openai::profile::on(profile, code_env)`
   - Args:
-    - profile - 
-    - code_env - 
+    - profile -
+    - code_env -
 - `p6df::modules::openai::vscodes()`
 - `str str = p6df::modules::openai::prompt::mod()`
 
