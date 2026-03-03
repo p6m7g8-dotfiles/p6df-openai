@@ -50,7 +50,7 @@ p6df::modules::openai::external::brews() {
 ######################################################################
 p6df::modules::openai::home::symlink() {
 
-  p6_file_symlink "$P6_DFZ_SRC_P6M7G8_DOTFILES_DIR/p6df-openai/share/codex" .codex
+  p6_file_symlink "$P6_DFZ_SRC_P6M7G8_DOTFILES_DIR/p6df-openai/share/codex" "$HOME/.codex"
 
   p6_return_void
 }
