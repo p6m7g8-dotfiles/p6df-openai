@@ -47,5 +47,6 @@ p6df::modules::openai::mcp::server::add() {
 ######################################################################
 p6df::modules::openai::profile::mod() {
 
-  p6_return_words 'openai' '$OPENAI_API_KEY'
+  # shellcheck disable=SC2016
+  p6_return_words 'openai' "$"
 }
