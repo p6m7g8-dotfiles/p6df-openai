@@ -15,12 +15,12 @@ p6df::modules::openai::deps() {
 ######################################################################
 #<
 #
-# Function: p6df::modules::openai::mcp::server::add(name, command, [args...])
+# Function: p6df::modules::openai::mcp::server::add(name, command, ...)
 #
 #  Args:
-#	name - MCP server name
-#	command - command to run the server
-#	OPTIONAL args - command arguments
+#	name -
+#	command -
+#	... - 
 #
 #>
 ######################################################################
@@ -37,75 +37,16 @@ p6df::modules::openai::mcp::server::add() {
 ######################################################################
 #<
 #
-# Function: str str = p6df::modules::openai::prompt::mod()
+# Function: words openai $OPENAI_API_KEY = p6df::modules::openai::profile::mod()
 #
 #  Returns:
-#	str - str
+#	words - openai $OPENAI_API_KEY
 #
-#  Environment:	 OPENAI_API_KEY OPENAI_BASE_URL OPENAI_ORG_ID OPENAI_PROJECT_ID P6_DFZ_PROFILE_OPENAI
+#  Environment:	 OPENAI_API_KEY
 #>
 ######################################################################
-p6df::modules::openai::prompt::mod() {
+p6df::modules::openai::profile::mod() {
 
-  local str
-  if p6_string_blank_NOT "$P6_DFZ_PROFILE_OPENAI"; then
-    if p6_string_blank_NOT "$OPENAI_API_KEY"; then
-      str="openai:\t\t  $P6_DFZ_PROFILE_OPENAI:"
-      if p6_string_blank_NOT "$OPENAI_BASE_URL"; then
-        str=$(p6_string_append "$str" "$OPENAI_BASE_URL" " ")
-      fi
-      if p6_string_blank_NOT "$OPENAI_ORG_ID"; then
-        str=$(p6_string_append "$str" "$OPENAI_ORG_ID" "/")
-      fi
-      if p6_string_blank_NOT "$OPENAI_PROJECT_ID"; then
-        str=$(p6_string_append "$str" "$OPENAI_PROJECT_ID" "/")
-      fi
-      str=$(p6_string_append "$str" "api" "/")
-    fi
-  fi
-
-  p6_return_str "$str"
-}
-
-######################################################################
-#<
-#
-# Function: p6df::modules::openai::profile::on(profile, code)
-#
-#  Args:
-#	profile -
-#	code - shell code block (export OPENAI_API_KEY=... OPENAI_ORG_ID=... OPENAI_PROJECT_ID=... OPENAI_BASE_URL=...)
-#
-#  Environment:	 OPENAI_API_KEY OPENAI_BASE_URL OPENAI_ORG_ID OPENAI_PROJECT_ID P6_DFZ_PROFILE_OPENAI
-#>
-######################################################################
-p6df::modules::openai::profile::on() {
-  local profile="$1"
-  local code="$2"
-
-  p6_run_code "$code"
-
-  p6_env_export "P6_DFZ_PROFILE_OPENAI" "$profile"
-
-  p6_return_void
-}
-
-######################################################################
-#<
-#
-# Function: p6df::modules::openai::profile::off(code)
-#
-#  Args:
-#	code - shell code block previously passed to profile::on
-#
-#  Environment:	 OPENAI_API_KEY OPENAI_BASE_URL OPENAI_ORG_ID OPENAI_PROJECT_ID P6_DFZ_PROFILE_OPENAI
-#>
-######################################################################
-p6df::modules::openai::profile::off() {
-  local code="$1"
-
-  p6_env_unset_from_code "$code"
-  p6_env_export_un P6_DFZ_PROFILE_OPENAI
-
-  p6_return_void
+  # shellcheck disable=SC2016
+  p6_return_words 'openai' "$OPENAI_API_KEY"
 }
