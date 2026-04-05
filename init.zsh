@@ -37,10 +37,10 @@ p6df::modules::openai::mcp::server::add() {
 ######################################################################
 #<
 #
-# Function: words openai $OPENAI_API_KEY = p6df::modules::openai::profile::mod()
+# Function: words openai = p6df::modules::openai::profile::mod()
 #
 #  Returns:
-#	words - openai $OPENAI_API_KEY
+#	words - openai
 #
 #  Environment:	 OPENAI_API_KEY
 #>
